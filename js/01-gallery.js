@@ -10,8 +10,41 @@ function createGallery() {
 }).join('');
 
 gallery.insertAdjacentHTML('beforeend', markup);
+ }; 
+
+
+/* instance.show() */
+createGallery(); 
+
+
+/* const images = document.querySelectorAll('.gallery__image');
+images.forEach(img => {
+    const instance = basicLightbox.create(
+	img
+)
+}) */
+gallery.addEventListener('click', onClickEvent);
+
+function onClickEvent(event) {
+    event.preventDefault();
+    if (event.target.nodeName !== 'IMG') {
+        return;
+    };
+    basicLightbox.create(`<img src=${event.target.dataset.source}>`).show();
+
+    /* event.target);
+    event.target.src = event.target.dataset.source; */
 }
 
-createGallery();
+/* const instance = basicLightbox.create(
+    markup,
+    {
+	visible: true
+}
+);
+gallery.insertAdjacentHTML('beforeend', instance); */
 
-
+/* const instance = basicLightbox.create(
+	gallery
+) */
+/* console.log(basicLightbox.visible()) */
