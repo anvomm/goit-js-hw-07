@@ -28,8 +28,8 @@ function onClickEvent(event) {
 
     function onEscPressEvent(event) {
     if (event.code === 'Escape') {
-            instance.close();
-        };  
+        instance.close();
+    };  
 }
 }
 
