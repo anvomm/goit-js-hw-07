@@ -18,19 +18,18 @@ createGallery();
 
 function onClickEvent(event) {
     event.preventDefault();
-    /* if (event.target.nodeName !== 'IMG') {
+    if (event.target.nodeName !== 'IMG') {
         return;
-    }; */
-    const instance = basicLightbox.create(`<img src=${event.target.dataset.source}>`);
+    };
+    const instance = basicLightbox.create(`<img src=${event.target.dataset.source}>`, {onClose: () => {window.removeEventListener('keydown', onEscPressEvent);}});
     instance.show();
-    window.addEventListener('keydown', onEscPressEvent);
+
+    window.addEventListener('keydown', onEscPressEvent);  
 
     function onEscPressEvent(event) {
     if (event.code === 'Escape') {
-        instance.close();
-        window.removeEventListener('keydown', onEscPressEvent);
-    }
-    
+            instance.close();
+        };  
 }
 }
 
