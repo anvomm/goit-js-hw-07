@@ -21,12 +21,12 @@ function onClickEvent(event) {
     if (event.target.nodeName !== 'IMG') {
         return;
     };
-    const instance = basicLightbox.create(`<img src=${event.target.dataset.source}>`, {onClose: () => {window.removeEventListener('keydown', onEscPressEvent);}});
+    const instance = basicLightbox.create(`<img src=${event.target.dataset.source}>`, {onClose: () => {window.removeEventListener('keydown', onEscPressClose);}});
     instance.show();
 
-    window.addEventListener('keydown', onEscPressEvent);  
+    window.addEventListener('keydown', onEscPressClose);  
 
-    function onEscPressEvent(event) {
+    function onEscPressClose(event) {
     if (event.code === 'Escape') {
         instance.close();
     };  
