@@ -14,4 +14,4 @@ gallery.insertAdjacentHTML('beforeend', markup);
 
 createGallery(); 
 
-var lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250, });
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250, });
